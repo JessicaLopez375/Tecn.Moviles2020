@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/high_fragment"
+            android:layout_marginTop="8dp"
+            android:layout_alignParentTop = "true"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/icono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin"
+                app:srcCompat="@drawable/movie_nigth" />
+
+            <Button
+                android:id="@+id/movie_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin"
+                android:text="@string/movie"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text"
+                android:background="@drawable/button_no_border"
+                android:typeface="normal"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/high_fragment"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            tools:ignore="MissingConstraints">
+
+            <Button
+                android:id="@+id/home_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin"
+                android:background="@drawable/button_no_border"
+                android:drawableTop="@drawable/ic_home"
+                android:text="@string/home"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text"
+                android:typeface="normal"
+                android:onClick="onClick"/>
+
+            <Button
+                android:id="@+id/setting_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin"
+                android:background="@drawable/button_no_border"
+                android:text="@string/setting"
+                android:drawableTop="@drawable/ic_setting"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text"
+                android:typeface="normal"
+                android:onClick="onClick"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <FrameLayout
+                android:id="@+id/containerFragments"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/line1"
+                android:layout_above="@id/line2">
+            </FrameLayout>
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Movie Nigth</string>
+    <string name="enter_button">Iniciar Sesión</string>
+    <string name="new_user">¿Primera vez en Movie Nigth?</string>
+    <string name="create_account">Registrarse</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="repeat_password">Repetir contraseña</string>
+    <string name="login">Inicia sesión</string>
+    <string name="recover_password">Recuperar Contraseña</string>
+    <string name="full_name"> Nombre y Apellido</string>
+    <string name="movie">Películas</string>
+    <string name="setting">Configuración</string>
+    <string name="home">Inicio</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
