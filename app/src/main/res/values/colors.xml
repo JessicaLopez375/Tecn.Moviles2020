@@ -2,6 +2,7 @@
 <resources>
     <color name="colorAccent">#03DAC5</color>
     <color name="background">#242424</color>
+    <color name="backgroudHome">#ff6206 </color>
     <color name="colorPrimary">#050505</color>
     <color name="white">#FFFFFF</color>
 

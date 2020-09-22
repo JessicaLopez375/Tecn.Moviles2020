@@ -6,10 +6,43 @@
     android:background="@color/colorPrimary"
     tools:context=".FragmentMovies">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textViewAdvances"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/advances"
+            android:textColor="@color/white"
+            android:textSize="@dimen/titulo"
+            android:typeface="normal"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/magin_titulo"
+            android:layout_marginLeft="@dimen/magin_titulo"
+            android:paddingTop="@dimen/magin_titulo"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_Advances"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/higt_advances">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_Movies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
 </FrameLayout>

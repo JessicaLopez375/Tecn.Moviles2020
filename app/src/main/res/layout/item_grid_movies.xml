@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/colorPrimary">
+
+
+    <ImageView
+        android:id="@+id/imageMovie"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:src="@drawable/fuera_de_control"
+        android:layout_marginRight="@dimen/margin_movie"
+        android:layout_marginLeft="@dimen/margin_movie"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
