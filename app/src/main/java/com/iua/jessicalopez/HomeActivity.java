@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-public class homeActivity extends AppCompatActivity implements FragmentMovies.MoviesFragmentListener,
+public class HomeActivity extends AppCompatActivity implements FragmentMovies.MoviesFragmentListener,
         FragmentSetting.SettingFragmentListener{
 
     FragmentMovies fragmentMovies;

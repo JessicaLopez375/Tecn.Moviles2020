@@ -23,14 +23,14 @@ public class MainActivity extends AppCompatActivity {
         initButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, loginActivity.class));
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
 
         createAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, createAccountActivity.class));
+                startActivity(new Intent(MainActivity.this, CreateAccountActivity.class));
             }
         });
     }

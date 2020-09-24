@@ -100,7 +100,7 @@ public class FragmentMovies extends Fragment {
     }
 
     private void llenarlista() {
-        
+
         movies.add(new MovieVo(R.string.movie_fuera_de_control,R.drawable.fuera_de_control,R.string.sinopsis_fuera_control));
         movies.add(new MovieVo(R.string.el_rey_leon,R.drawable.el_rey_leon,R.string.sinopsis_fuera_control));
         movies.add(new MovieVo(R.string.dos_por_el_dinero,R.drawable.dos_por_el_dinero,R.string.sinopsis_fuera_control));
