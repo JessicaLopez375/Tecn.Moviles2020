@@ -31,9 +31,10 @@
     <string name="capitan">Capitan América</string>
     <string name="proyecto">Proyecto Géminis</string>
     <string name="everest">Everest</string>
+    <string name="fav">Favoritos</string>
+    <string name="share">Compartir</string>
     <string name="sinopsis_fuera_control">Después de un ataque de furia, causado por una discusión con la
         conductora del coche de al lado, pierde totalmente la cabeza y comienza una persecución ilimitada, dejando un rastro de muertes a su paso.</string>
-
 
 
 </resources>

@@ -11,6 +11,6 @@
     <dimen name="magin_titulo">10dp</dimen>
     <dimen name="higt_advances">150dp</dimen>
     <dimen name="titulo">15dp</dimen>
-   <dimen name="movie">300dp</dimen>
+   <dimen name="movie">200dp</dimen>
     <dimen name="title_detail">25dp</dimen>
 </resources>

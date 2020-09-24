@@ -43,12 +43,7 @@
 
         </activity>
         <activity
-            android:name=".mainScreenActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
-        <activity android:name=".movieDetailActivity"
+            android:name=".homeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 

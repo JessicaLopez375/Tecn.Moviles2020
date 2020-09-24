@@ -100,6 +100,7 @@ public class FragmentMovies extends Fragment {
     }
 
     private void llenarlista() {
+        
         movies.add(new MovieVo(R.string.movie_fuera_de_control,R.drawable.fuera_de_control,R.string.sinopsis_fuera_control));
         movies.add(new MovieVo(R.string.el_rey_leon,R.drawable.el_rey_leon,R.string.sinopsis_fuera_control));
         movies.add(new MovieVo(R.string.dos_por_el_dinero,R.drawable.dos_por_el_dinero,R.string.sinopsis_fuera_control));
@@ -112,14 +113,16 @@ public class FragmentMovies extends Fragment {
         movies.add(new MovieVo(R.string.everest,R.drawable.everest,R.string.sinopsis_fuera_control));
 
 
-        advances.add(new MovieVo(R.string.advance_1917,R.drawable.advance_1917));
-        advances.add(new MovieVo(R.string.Unidos,R.drawable.unidos));
-        advances.add(new MovieVo(R.string.Pasasite,R.drawable.pasasite));
-        advances.add(new MovieVo(R.string.Parque_Magico,R.drawable.parque_magico));
-        advances.add(new MovieVo(R.string.locos_addams,R.drawable.los_locos_addams));
+        advances.add(new MovieVo(R.string.advance_1917,R.drawable.advance_1917,R.string.sinopsis_fuera_control));
+        advances.add(new MovieVo(R.string.Unidos,R.drawable.unidos,R.string.sinopsis_fuera_control));
+        advances.add(new MovieVo(R.string.Pasasite,R.drawable.pasasite,R.string.sinopsis_fuera_control));
+        advances.add(new MovieVo(R.string.Parque_Magico,R.drawable.parque_magico,R.string.sinopsis_fuera_control));
+        advances.add(new MovieVo(R.string.locos_addams,R.drawable.los_locos_addams,R.string.sinopsis_fuera_control));
 
 
     }
 
 
+    public interface MoviesFragmentListener {
+    }
 }

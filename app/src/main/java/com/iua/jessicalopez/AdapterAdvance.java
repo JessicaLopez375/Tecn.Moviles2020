@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -29,9 +30,23 @@ public class AdapterAdvance extends RecyclerView.Adapter<AdapterAdvance.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderAdvance holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolderAdvance holder, final int position) {
         holder.imageAdvance.setImageResource(listAdvances.get(position).getImageMovie());
         holder.nameAdvance.setText(listAdvances.get(position).getNameMovie());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                FragmentDetails detailFragment = new FragmentDetails();
+                detailFragment.putExtra(listAdvances.get(position));
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.containerFragments,detailFragment).addToBackStack(null).commit();
+
+
+
+            }
+        });
 
     }
 

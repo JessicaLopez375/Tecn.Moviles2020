@@ -1,16 +1,12 @@
 package com.iua.jessicalopez;
 
-import android.content.Intent;
-import android.graphics.Movie;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -43,9 +39,17 @@ public class AdapterMovie extends RecyclerView.Adapter<AdapterMovie.ViewHolderMo
        holder.itemView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               Intent intent = new Intent(holder.itemView.getContext(),movieDetailActivity.class);
-               intent.putExtra("movieDetail", listMovies.get(position));
-               holder.itemView.getContext().startActivity(intent);
+
+               AppCompatActivity activity = (AppCompatActivity) view.getContext();
+               FragmentDetails detailFragment = new FragmentDetails();
+               detailFragment.putExtra(listMovies.get(position));
+               activity.getSupportFragmentManager().beginTransaction().replace(R.id.containerFragments,detailFragment).addToBackStack(null).commit();
+
+               //EN CASO DE ENVIAR LOS DATOS A UNA ACTIVITY
+               //Intent intent = new Intent(holder.itemView.getContext(),movieDetailActivity.class);
+               //intent.putExtra("movieDetail", listMovies.get(position));
+               //holder.itemView.getContext().startActivity(intent);
+
 
            }
        });

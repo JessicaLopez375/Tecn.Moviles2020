@@ -1,34 +1,29 @@
 package com.iua.jessicalopez;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-
-public class mainScreenActivity extends AppCompatActivity implements FragmentMovies.MoviesFragmentListener,
+public class homeActivity extends AppCompatActivity implements FragmentMovies.MoviesFragmentListener,
         FragmentSetting.SettingFragmentListener{
 
     FragmentMovies fragmentMovies;
     FragmentSetting fragmentSetting;
+    FragmentFav fragmentFav;
 
 
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_screen);
+        setContentView(R.layout.home);
 
 
         fragmentMovies = new FragmentMovies();
         fragmentSetting = new FragmentSetting();
+        fragmentFav = new FragmentFav();
         //Por defecto el primer fragment es el movie
         getSupportFragmentManager().beginTransaction().add(R.id.containerFragments,fragmentMovies).commit();
 
@@ -47,7 +42,9 @@ public class mainScreenActivity extends AppCompatActivity implements FragmentMov
             case(R.id.home_button):
                 transaction.replace(R.id.containerFragments,fragmentMovies);
                 break;
-
+            case(R.id.fav_button):
+                transaction.replace(R.id.containerFragments,fragmentFav);
+                break;
         }
 
         transaction.commit();
