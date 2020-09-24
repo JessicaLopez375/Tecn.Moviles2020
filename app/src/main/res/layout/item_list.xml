@@ -15,7 +15,7 @@
         android:src="@drawable/fuera_de_control"
         android:layout_marginTop="@dimen/margin_movie"
         android:layout_marginRight="@dimen/margin_advance"
-        android:layout_marginLeft="@dimen/margin_advance"/>
+        android:layout_marginLeft="@dimen/margin_advance" />
 
 
     <TextView

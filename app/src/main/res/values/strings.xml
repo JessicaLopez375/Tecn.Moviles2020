@@ -22,10 +22,18 @@
     <string name="Parque_Magico">Parque Mágico</string>
     <string name="locos_addams">Los locos Addams</string>
     <string name="title_activity_splash">Splash</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
-    <string name="hello_world">Hello Square World!</string>
+    <string name="play">Reproducir</string>
+    <string name="dos_por_el_dinero">Dos por el dinero</string>
+    <string name="dracula">Dracula</string>
+    <string name="rapido_furioso">Rápido y Furioso 8</string>
+    <string name="telnet">Telnet</string>
+    <string name="contra_imposible">Contra lo imposible</string>
+    <string name="capitan">Capitan América</string>
+    <string name="proyecto">Proyecto Géminis</string>
+    <string name="everest">Everest</string>
+    <string name="sinopsis_fuera_control">Después de un ataque de furia, causado por una discusión con la
+        conductora del coche de al lado, pierde totalmente la cabeza y comienza una persecución ilimitada, dejando un rastro de muertes a su paso.</string>
+
+
 
 </resources>

@@ -1,7 +1,11 @@
 package com.iua.jessicalopez;
 
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.DrawableRes;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -34,7 +39,6 @@ public class FragmentMovies extends Fragment {
 
     RecyclerView recyclerAdvance;
     ArrayList<MovieVo> advances;
-
 
 
     public FragmentMovies() {
@@ -90,20 +94,22 @@ public class FragmentMovies extends Fragment {
         AdapterAdvance adapterAdvance = new AdapterAdvance(advances);
         recyclerAdvance.setAdapter(adapterAdvance);
 
+
+
         return vista;
     }
 
     private void llenarlista() {
-        movies.add(new MovieVo(R.drawable.fuera_de_control));
-        movies.add(new MovieVo(R.drawable.el_rey_leon));
-        movies.add(new MovieVo(R.drawable.dos_por_el_dinero));
-        movies.add(new MovieVo(R.drawable.dracula));
-        movies.add(new MovieVo(R.drawable.rapido_y_furioso_8));
-        movies.add(new MovieVo(R.drawable.tenet));
-        movies.add(new MovieVo(R.drawable.contra_lo_imposible));
-        movies.add(new MovieVo(R.drawable.capitan_america));
-        movies.add(new MovieVo(R.drawable.proyecto_gemenis));
-        movies.add(new MovieVo(R.drawable.everest));
+        movies.add(new MovieVo(R.string.movie_fuera_de_control,R.drawable.fuera_de_control,R.string.sinopsis_fuera_control));
+        movies.add(new MovieVo(R.string.el_rey_leon,R.drawable.el_rey_leon,R.string.sinopsis_fuera_control));
+        movies.add(new MovieVo(R.string.dos_por_el_dinero,R.drawable.dos_por_el_dinero,R.string.sinopsis_fuera_control));
+        movies.add(new MovieVo(R.string.dracula,R.drawable.dracula,R.string.sinopsis_fuera_control));
+        movies.add(new MovieVo(R.string.rapido_furioso,R.drawable.rapido_y_furioso_8,R.string.sinopsis_fuera_control));
+        movies.add(new MovieVo(R.string.telnet,R.drawable.tenet,R.string.sinopsis_fuera_control));
+        movies.add(new MovieVo(R.string.contra_imposible,R.drawable.contra_lo_imposible,R.string.sinopsis_fuera_control));
+        movies.add(new MovieVo(R.string.capitan,R.drawable.capitan_america,R.string.sinopsis_fuera_control));
+        movies.add(new MovieVo(R.string.proyecto,R.drawable.proyecto_gemenis,R.string.sinopsis_fuera_control));
+        movies.add(new MovieVo(R.string.everest,R.drawable.everest,R.string.sinopsis_fuera_control));
 
 
         advances.add(new MovieVo(R.string.advance_1917,R.drawable.advance_1917));
@@ -115,6 +121,5 @@ public class FragmentMovies extends Fragment {
 
     }
 
-    public interface MoviesFragmentListener {
-    }
+
 }

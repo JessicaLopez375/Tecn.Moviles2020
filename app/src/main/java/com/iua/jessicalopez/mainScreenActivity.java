@@ -1,7 +1,9 @@
 package com.iua.jessicalopez;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -16,8 +18,7 @@ public class mainScreenActivity extends AppCompatActivity implements FragmentMov
 
     FragmentMovies fragmentMovies;
     FragmentSetting fragmentSetting;
-    RecyclerView recyclerAdvance;
-    ArrayList<MovieVo> advances;
+
 
 
     @Override
@@ -30,6 +31,8 @@ public class mainScreenActivity extends AppCompatActivity implements FragmentMov
         fragmentSetting = new FragmentSetting();
         //Por defecto el primer fragment es el movie
         getSupportFragmentManager().beginTransaction().add(R.id.containerFragments,fragmentMovies).commit();
+
+
     }
 
 
@@ -44,7 +47,13 @@ public class mainScreenActivity extends AppCompatActivity implements FragmentMov
             case(R.id.home_button):
                 transaction.replace(R.id.containerFragments,fragmentMovies);
                 break;
+
         }
+
         transaction.commit();
+
+
     }
+
+
 }
