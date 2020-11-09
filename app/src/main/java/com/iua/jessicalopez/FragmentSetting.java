@@ -3,10 +3,13 @@ package com.iua.jessicalopez;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +27,10 @@ public class FragmentSetting extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+    FragmentProfile fragmentProfile = new FragmentProfile();
+    Button buttonProfile;
+    View vista;
     public FragmentSetting() {
         // Required empty public constructor
     }
@@ -58,8 +65,21 @@ public class FragmentSetting extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_setting, container, false);
+       vista = inflater.inflate(R.layout.fragment_setting, container, false);
+       buttonProfile = vista.findViewById(R.id.my_profile);
+
+       buttonProfile.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+               FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+               fragmentTransaction.replace(R.id.contenedorSetting, fragmentProfile);
+               fragmentTransaction.commit();
+
+           }
+       });
+
+        return vista;
     }
 
     public interface SettingFragmentListener {

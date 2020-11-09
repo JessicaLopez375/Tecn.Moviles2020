@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".FragmentProfile">
+
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/titulo"
+            android:layout_marginTop="@dimen/marginprofile"
+            android:clickable="true"
+            android:text="@string/cancelar"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/editarPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginprofile"
+            android:text="@string/editarPerfil"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/listo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginTop="@dimen/marginprofile"
+            android:layout_marginEnd="@dimen/titulo"
+            android:clickable="true"
+            android:text="@string/listo"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/listo"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginprofile"
+                android:src="@drawable/imagenperfil" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textName"
+                        android:layout_width="@dimen/margin_campos"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/magin_titulo"
+                        android:layout_marginTop="@dimen/margin"
+                        android:layout_marginRight="@dimen/margin"
+                        android:text="@string/nombre"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editTextName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin"
+                        android:focusable="true"
+                        android:inputType="textPersonName"
+                        android:text="Name"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="auto"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textPerfil"
+                        android:layout_width="@dimen/margin_campos"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/magin_titulo"
+                        android:layout_marginTop="@dimen/margin"
+                        android:layout_marginRight="@dimen/margin"
+                        android:text="@string/perfil"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editTextPerfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin"
+                        android:inputType="textPersonName"
+                        android:text="Name"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textPreferencias"
+                        android:layout_width="@dimen/margin_campos"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/magin_titulo"
+                        android:layout_marginTop="@dimen/margin"
+                        android:layout_marginRight="@dimen/margin"
+                        android:text="@string/preferencia"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="@dimen/margin"
+                        android:textSize="@dimen/text" />
+
+
+                </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>

@@ -35,6 +35,20 @@
     <string name="share">Compartir</string>
     <string name="sinopsis_fuera_control">Después de un ataque de furia, causado por una discusión con la
         conductora del coche de al lado, pierde totalmente la cabeza y comienza una persecución ilimitada, dejando un rastro de muertes a su paso.</string>
+    <string name="my_list">Mi lista</string>
+    <string name="my_profile">Mi lista</string>
+    <string name="perfil">Perfil</string>
+    <string name="pass">CONTRASEÑA</string>
+    <string name="editarPerfil">Editar Perfil</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="listo">Listo</string>
+    <string name="nombre">Nombre</string>
+    <string name="preferencia">Preferencias</string>
+
+    <string-array name="preferencias">
+        <item>Peliculas</item>
+        <item>Series</item>
+    </string-array>
 
 
 </resources>
