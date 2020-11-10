@@ -37,10 +37,10 @@ public class FragmentMovies extends Fragment {
     RecyclerView recyclerAdvance;
     ArrayList<MovieVo> advances;
 
-    String titulo;
-    String descripcion;
-    String path;
+    JSONArray jsonArray;
+    String titulo, descripcion, path;
     String uribase = "https://image.tmdb.org/t/p/original";
+    String uriCompleta;
 
     ClassConnection connection = new ClassConnection();
 
@@ -67,12 +67,10 @@ public class FragmentMovies extends Fragment {
         try {
             String response = connection.execute("https://api.themoviedb.org/3/discover/movie?api_key=4e288b8538f5ea2c0a791cc57625bcad").get();
             JSONObject jsonObject = new JSONObject(response);
-            JSONArray jsonArray = jsonObject.getJSONArray("results");
+            jsonArray = jsonObject.getJSONArray("results");
 
-            titulo = jsonArray.getJSONObject(1).getString("title");
-            descripcion = jsonArray.getJSONObject(1).getString("overview");
-            path = jsonArray.getJSONObject(1).getString("poster_path");
-            uribase = uribase + path;
+
+
             //TextView textView = (TextView) findViewById(R.id.textViewAdvances);
             //textView.setText(jsonObject.getJSONArray("results").getJSONObject(0).getString("title"));
 
@@ -99,13 +97,15 @@ public class FragmentMovies extends Fragment {
         recyclerAdvance = vista.findViewById(R.id.recycler_Advances);
         recyclerAdvance.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
 
-        System.out.println(titulo);
-        System.out.println(descripcion);
-        llenarlista();
-        AdapterMovie adapterMovie = new AdapterMovie(movies);
+        try {
+            llenarlista();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        AdapterMovie adapterMovie = new AdapterMovie(movies,getContext());
         recyclerMovies.setAdapter(adapterMovie);
 
-        AdapterAdvance adapterAdvance = new AdapterAdvance(advances);
+        AdapterAdvance adapterAdvance = new AdapterAdvance(advances,getContext());
         recyclerAdvance.setAdapter(adapterAdvance);
 
 
@@ -113,11 +113,28 @@ public class FragmentMovies extends Fragment {
         return vista;
     }
 
-    private void llenarlista() {
+    private void llenarlista() throws JSONException {
+
+        for (int i=0;i<=20;i++)
+        {
+            titulo = jsonArray.getJSONObject(i).getString("title");
+            descripcion = jsonArray.getJSONObject(i).getString("overview");
+            path = jsonArray.getJSONObject(i).getString("poster_path");
+            uriCompleta = uribase + path;
+            movies.add(new MovieVo(titulo,uriCompleta,descripcion));
+        }
+
+        for (int i=21;i<=25;i++)
+        {
+            titulo = jsonArray.getJSONObject(i).getString("title");
+            path = jsonArray.getJSONObject(i).getString("poster_path");
+            uriCompleta = uribase + path;
+            advances.add(new MovieVo(titulo,uriCompleta));
+        }
 
 
 
-        movies.add(new MovieVo(titulo,R.drawable.fuera_de_control,descripcion));
+
         /*movies.add(new MovieVo(R.string.el_rey_leon,R.drawable.el_rey_leon,R.string.sinopsis_fuera_control));
         movies.add(new MovieVo(R.string.dos_por_el_dinero,R.drawable.dos_por_el_dinero,R.string.sinopsis_fuera_control));
         movies.add(new MovieVo(R.string.dracula,R.drawable.dracula,R.string.sinopsis_fuera_control));
@@ -129,12 +146,12 @@ public class FragmentMovies extends Fragment {
         movies.add(new MovieVo(R.string.everest,R.drawable.everest,R.string.sinopsis_fuera_control));
 */
 
-        advances.add(new MovieVo(R.string.advance_1917,R.drawable.advance_1917,R.string.sinopsis_fuera_control));
+        /*advances.add(new MovieVo(R.string.advance_1917,R.drawable.advance_1917,R.string.sinopsis_fuera_control));
         advances.add(new MovieVo(R.string.Unidos,R.drawable.unidos,R.string.sinopsis_fuera_control));
         advances.add(new MovieVo(R.string.Pasasite,R.drawable.pasasite,R.string.sinopsis_fuera_control));
         advances.add(new MovieVo(R.string.Parque_Magico,R.drawable.parque_magico,R.string.sinopsis_fuera_control));
         advances.add(new MovieVo(R.string.locos_addams,R.drawable.los_locos_addams,R.string.sinopsis_fuera_control));
-
+        */
 
     }
 

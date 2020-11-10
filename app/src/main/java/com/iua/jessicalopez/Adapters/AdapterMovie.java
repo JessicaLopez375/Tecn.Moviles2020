@@ -1,5 +1,6 @@
 package com.iua.jessicalopez.Adapters;
 
+import android.content.Context;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.iua.jessicalopez.Fragments.FragmentDetails;
 import com.iua.jessicalopez.Modelo.MovieVo;
 import com.iua.jessicalopez.R;
@@ -21,9 +23,10 @@ import java.util.ArrayList;
 public class AdapterMovie extends RecyclerView.Adapter<AdapterMovie.ViewHolderMovie> {
 
     ArrayList<MovieVo> listMovies;
-
-    public AdapterMovie(ArrayList<MovieVo> listMovies) {
+    private Context context;
+    public AdapterMovie(ArrayList<MovieVo> listMovies, Context context) {
         this.listMovies = listMovies;
+        this.context = context;
     }
 
     @NonNull
@@ -39,8 +42,11 @@ public class AdapterMovie extends RecyclerView.Adapter<AdapterMovie.ViewHolderMo
     public void onBindViewHolder(@NonNull final ViewHolderMovie holder, final int position) {
         //Establece la comunicacion entre el adaptador y el viewHolder
 
-        //holder.imageMovie.setImageURI(Uri.parse(listMovies.get(position).getPath()));
-       holder.imageMovie.setImageResource(listMovies.get(position).getImageMovie());
+        Glide.with(context)
+                .load(listMovies.get(position).getFoto())
+                .into(holder.imageMovie);
+        //holder.imageMovie.setImageURI(Uri.parse(listMovies.get(position).getFoto()));
+       //holder.imageMovie.setImageResource(listMovies.get(position).getImageMovie());
 
        //Esta View hace referencia a cada item
        holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +54,7 @@ public class AdapterMovie extends RecyclerView.Adapter<AdapterMovie.ViewHolderMo
            public void onClick(View view) {
 
                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-               FragmentDetails detailFragment = new FragmentDetails();
+               FragmentDetails detailFragment = new FragmentDetails(context);
                detailFragment.putExtra(listMovies.get(position));
                activity.getSupportFragmentManager().beginTransaction().replace(R.id.containerFragments,detailFragment).addToBackStack(null).commit();
 

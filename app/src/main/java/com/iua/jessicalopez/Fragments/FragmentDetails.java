@@ -1,5 +1,6 @@
 package com.iua.jessicalopez.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.iua.jessicalopez.Modelo.MovieVo;
 import com.iua.jessicalopez.R;
 
@@ -34,7 +36,13 @@ public class FragmentDetails extends Fragment {
     TextView textView;
     TextView textSinopsis;
     MovieVo movieDetails;
+    Context context;
 
+
+    public FragmentDetails(Context context) {
+        this.context = context;
+        // Required empty public constructor
+    }
     public FragmentDetails() {
         // Required empty public constructor
     }
@@ -85,8 +93,11 @@ public class FragmentDetails extends Fragment {
 
     public void initValues() {
 
+        Glide.with(context)
+                .load(movieDetails.getFoto())
+                .into(imageMovie);
 
-        imageMovie.setImageResource(movieDetails.getImageMovie());
+        //imageMovie.setImageResource(Integer.parseInt(movieDetails.getFoto()));
 
         textView.setText(movieDetails.getName());
 
