@@ -1,4 +1,4 @@
-package com.iua.jessicalopez;
+package com.iua.jessicalopez.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.iua.jessicalopez.Fragments.FragmentDetails;
+import com.iua.jessicalopez.Modelo.MovieVo;
+import com.iua.jessicalopez.R;
 
 import java.util.ArrayList;
 

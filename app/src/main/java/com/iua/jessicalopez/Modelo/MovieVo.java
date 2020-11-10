@@ -1,4 +1,4 @@
-package com.iua.jessicalopez;
+package com.iua.jessicalopez.Modelo;
 
 
 import android.net.Uri;
@@ -11,6 +11,9 @@ public class MovieVo  implements Serializable {
     private int nameMovie;
     private int imageMovie;
     private int sinopsis;
+    private String name;
+    private String description;
+    private String path;
 
 
 
@@ -28,6 +31,16 @@ public class MovieVo  implements Serializable {
         this.sinopsis = sinopsis;
     }
 
+    public MovieVo(String name, int imageMovie, String description) {
+        this.name = name;
+        this.imageMovie = imageMovie;
+        this.description=description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     public int getSinopsis() {
         return sinopsis;
     }
@@ -43,13 +56,21 @@ public class MovieVo  implements Serializable {
 
 
 
+
     public int getNameMovie() {
         return nameMovie;
     }
 
+    public String getName() {
+        return name;
+    }
 
     public void setNameMovie(int nameMovie) {
         this.nameMovie = nameMovie;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getImageMovie() {
@@ -60,5 +81,7 @@ public class MovieVo  implements Serializable {
         this.imageMovie = imageMovie;
     }
 
-
+    public String getPath() {
+        return path;
+    }
 }

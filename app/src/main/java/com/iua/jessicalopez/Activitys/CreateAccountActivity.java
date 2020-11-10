@@ -1,8 +1,10 @@
-package com.iua.jessicalopez;
+package com.iua.jessicalopez.Activitys;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.iua.jessicalopez.R;
 
 public class CreateAccountActivity extends AppCompatActivity {
 

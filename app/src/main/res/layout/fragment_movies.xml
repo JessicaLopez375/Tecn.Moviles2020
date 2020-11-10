@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:id="@+id/frameMovies"
-    tools:context=".FragmentMovies">
+    tools:context=".Fragments.FragmentMovies">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/line1"

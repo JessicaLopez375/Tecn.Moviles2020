@@ -1,4 +1,4 @@
-package com.iua.jessicalopez;
+package com.iua.jessicalopez.Activitys;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,8 +6,13 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.iua.jessicalopez.Fragments.FragmentFav;
+import com.iua.jessicalopez.Fragments.FragmentMovies;
+import com.iua.jessicalopez.Fragments.FragmentSetting;
+import com.iua.jessicalopez.R;
+
 public class HomeActivity extends AppCompatActivity implements FragmentMovies.MoviesFragmentListener,
-        FragmentSetting.SettingFragmentListener{
+        FragmentSetting.SettingFragmentListener {
 
     FragmentMovies fragmentMovies;
     FragmentSetting fragmentSetting;

@@ -1,5 +1,6 @@
-package com.iua.jessicalopez;
+package com.iua.jessicalopez.Adapters;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.iua.jessicalopez.Fragments.FragmentDetails;
+import com.iua.jessicalopez.Modelo.MovieVo;
+import com.iua.jessicalopez.R;
+
+import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 
 //Alimenta el item_grid_movies
@@ -33,6 +39,7 @@ public class AdapterMovie extends RecyclerView.Adapter<AdapterMovie.ViewHolderMo
     public void onBindViewHolder(@NonNull final ViewHolderMovie holder, final int position) {
         //Establece la comunicacion entre el adaptador y el viewHolder
 
+        //holder.imageMovie.setImageURI(Uri.parse(listMovies.get(position).getPath()));
        holder.imageMovie.setImageResource(listMovies.get(position).getImageMovie());
 
        //Esta View hace referencia a cada item

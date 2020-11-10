@@ -1,10 +1,12 @@
-package com.iua.jessicalopez;
+package com.iua.jessicalopez.Activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.iua.jessicalopez.R;
 
 public class SplashActivity extends AppCompatActivity {
 
