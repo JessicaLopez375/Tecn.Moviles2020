@@ -13,6 +13,7 @@
         android:layout_height="220dp"
         android:src="@drawable/fuera_de_control"
         android:layout_marginRight="@dimen/margin_movie"
-        android:layout_marginLeft="@dimen/margin_movie" />
+        android:layout_marginLeft="@dimen/margin_movie"
+        android:layout_marginBottom="10dp"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
