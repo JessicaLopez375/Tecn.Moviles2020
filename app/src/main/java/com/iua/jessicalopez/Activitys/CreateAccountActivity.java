@@ -33,7 +33,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     {
         registrarUsuarios();
         Toast.makeText(getApplicationContext(),"Usuario registrado",Toast.LENGTH_LONG).show();
-        startActivity(new Intent(CreateAccountActivity.this, HomeActivity.class));
+        startActivity(new Intent(CreateAccountActivity.this, LoginActivity.class));
     }
 
     private void registrarUsuarios() {
