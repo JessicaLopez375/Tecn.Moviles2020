@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
@@ -115,7 +116,7 @@ public class FragmentMovies extends Fragment {
 
     private void llenarlista() throws JSONException {
 
-        for (int i=0;i<=20;i++)
+        for (int i=0;i<=15;i++)
         {
             titulo = jsonArray.getJSONObject(i).getString("title");
             descripcion = jsonArray.getJSONObject(i).getString("overview");
@@ -124,17 +125,14 @@ public class FragmentMovies extends Fragment {
             movies.add(new MovieVo(titulo,uriCompleta,descripcion));
         }
 
-        for (int i=21;i<=25;i++)
+        for (int y=16;y<=20;y++)
         {
-            titulo = jsonArray.getJSONObject(i).getString("title");
-            path = jsonArray.getJSONObject(i).getString("poster_path");
-            uriCompleta = uribase + path;
-            advances.add(new MovieVo(titulo,uriCompleta));
+                titulo = jsonArray.getJSONObject(y).getString("title");
+                path = jsonArray.getJSONObject(y).getString("poster_path");
+                uriCompleta = uribase + path;
+                advances.add(new MovieVo(titulo,uriCompleta,descripcion));
+
         }
-
-
-
-
         /*movies.add(new MovieVo(R.string.el_rey_leon,R.drawable.el_rey_leon,R.string.sinopsis_fuera_control));
         movies.add(new MovieVo(R.string.dos_por_el_dinero,R.drawable.dos_por_el_dinero,R.string.sinopsis_fuera_control));
         movies.add(new MovieVo(R.string.dracula,R.drawable.dracula,R.string.sinopsis_fuera_control));
