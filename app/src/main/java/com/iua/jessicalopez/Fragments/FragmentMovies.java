@@ -38,20 +38,24 @@ public class FragmentMovies extends Fragment {
     RecyclerView recyclerAdvance;
     ArrayList<MovieVo> advances;
 
+
     JSONArray jsonArray;
     String titulo, descripcion, path;
     String uribase = "https://image.tmdb.org/t/p/original";
     String uriCompleta;
 
     ClassConnection connection = new ClassConnection();
+    String response = connection.execute("https://api.themoviedb.org/3/discover/movie?api_key=4e288b8538f5ea2c0a791cc57625bcad").get();
 
 
-    public FragmentMovies() {
+    public FragmentMovies() throws ExecutionException, InterruptedException {
         // Required empty public constructor
     }
 
 
-    public static FragmentMovies newInstance(String param1, String param2) {
+
+
+    public static FragmentMovies newInstance(String param1, String param2) throws ExecutionException, InterruptedException {
         FragmentMovies fragment = new FragmentMovies();
         Bundle args = new Bundle();
 
@@ -63,10 +67,11 @@ public class FragmentMovies extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+
         }
 
         try {
-            String response = connection.execute("https://api.themoviedb.org/3/discover/movie?api_key=4e288b8538f5ea2c0a791cc57625bcad").get();
+
             JSONObject jsonObject = new JSONObject(response);
             jsonArray = jsonObject.getJSONArray("results");
 
@@ -75,10 +80,6 @@ public class FragmentMovies extends Fragment {
             //TextView textView = (TextView) findViewById(R.id.textViewAdvances);
             //textView.setText(jsonObject.getJSONArray("results").getJSONObject(0).getString("title"));
 
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -51,7 +51,7 @@ public class ClassConnection extends AsyncTask<String, String, String> {
                     //Agregamos al buffer cada linea
                     buffer.append(line);
                 }
-
+                
                 return buffer.toString();
 
             }

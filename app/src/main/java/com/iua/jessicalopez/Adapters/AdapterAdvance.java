@@ -53,7 +53,7 @@ public class AdapterAdvance extends RecyclerView.Adapter<AdapterAdvance.ViewHold
             public void onClick(View view) {
 
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                FragmentDetails detailFragment = new FragmentDetails();
+                FragmentDetails detailFragment = new FragmentDetails(context);
                 detailFragment.putExtra(listAdvances.get(position));
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.containerFragments,detailFragment).addToBackStack(null).commit();
 

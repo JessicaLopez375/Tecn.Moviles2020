@@ -50,6 +50,9 @@
             android:textStyle="bold" />
 
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -91,6 +94,7 @@
                         android:text="Name"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text"
+                        android:nextFocusDown="@+id/editTextPerfil"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -124,8 +128,6 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text"
                         android:textStyle="bold" />
-
-
                 </LinearLayout>
 
 
@@ -157,10 +159,9 @@
 
                 </LinearLayout>
 
-        </LinearLayout>
+        </LinearLayout></ScrollView>
 
 
     </RelativeLayout>
-
 
 </FrameLayout>

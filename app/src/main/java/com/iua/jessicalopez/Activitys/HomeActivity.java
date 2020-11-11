@@ -11,6 +11,8 @@ import com.iua.jessicalopez.Fragments.FragmentMovies;
 import com.iua.jessicalopez.Fragments.FragmentSetting;
 import com.iua.jessicalopez.R;
 
+import java.util.concurrent.ExecutionException;
+
 public class HomeActivity extends AppCompatActivity implements FragmentMovies.MoviesFragmentListener,
         FragmentSetting.SettingFragmentListener {
 
@@ -19,18 +21,23 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
     FragmentFav fragmentFav;
 
 
-
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
 
-        fragmentMovies = new FragmentMovies();
+        try {
+            fragmentMovies = new FragmentMovies();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         fragmentSetting = new FragmentSetting();
         fragmentFav = new FragmentFav();
         //Por defecto el primer fragment es el movie
-        getSupportFragmentManager().beginTransaction().add(R.id.containerFragments,fragmentMovies).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.containerFragments, fragmentMovies).commit();
 
 
     }
@@ -39,16 +46,15 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
     public void onClick(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case (R.id.setting_button):
-                transaction.replace(R.id.containerFragments,fragmentSetting);
+                transaction.replace(R.id.containerFragments, fragmentSetting);
                 break;
-            case(R.id.home_button):
-                transaction.replace(R.id.containerFragments,fragmentMovies);
+            case (R.id.home_button):
+                transaction.replace(R.id.containerFragments, fragmentMovies);
                 break;
-            case(R.id.fav_button):
-                transaction.replace(R.id.containerFragments,fragmentFav);
+            case (R.id.fav_button):
+                transaction.replace(R.id.containerFragments, fragmentFav);
                 break;
         }
 

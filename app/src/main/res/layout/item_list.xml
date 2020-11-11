@@ -20,13 +20,14 @@
 
     <TextView
         android:id="@+id/nameMovieAdvances"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="@string/movie_fuera_de_control"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:layout_marginRight="@dimen/margin_advance"
         android:layout_marginLeft="@dimen/margin_advance"
+        android:layout_marginBottom="@dimen/margin_advance"
         android:textSize="@dimen/text"
         android:layout_gravity="center"/>
 

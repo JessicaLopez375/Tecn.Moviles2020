@@ -138,6 +138,7 @@
         android:text="@string/create_account"
         android:textSize="@dimen/text"
         android:typeface="normal"
+        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInput4" />

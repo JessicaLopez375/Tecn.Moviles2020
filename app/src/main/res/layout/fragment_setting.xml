@@ -8,7 +8,6 @@
     android:background="@color/background"
     tools:context=".Fragments.FragmentSetting">
 
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -45,8 +44,6 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/linear1"
             android:orientation="vertical">
-
-
             <Button
                 android:id="@+id/myList"
                 android:layout_width="match_parent"
@@ -71,7 +68,6 @@
 
         </LinearLayout>
     </RelativeLayout>
-
 
 
 
