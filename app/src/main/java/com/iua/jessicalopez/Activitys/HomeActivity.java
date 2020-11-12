@@ -64,4 +64,5 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
     }
 
 
+
 }

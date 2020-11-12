@@ -1,5 +1,10 @@
 package com.iua.jessicalopez.Modelo;
 
+import android.util.Patterns;
+
+import java.sql.SQLOutput;
+import java.util.regex.Pattern;
+
 public class User {
 
     private Integer id;
@@ -7,6 +12,7 @@ public class User {
     private String email;
     private String password;
 
+    public User(){}
     public User(Integer id, String nombreApellido, String email, String password) {
         this.id = id;
         this.nombreApellido = nombreApellido;
@@ -45,4 +51,33 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean validarEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
+    }
+
+    public boolean validarLogin(String email,String password)
+    {
+        if(email.equals(null)||email.trim().length()==0||!validarEmail(email)||password.equals(null) || password.trim().length()==0)
+            return true;
+        return false;
+    }
+
+    public String validarDatos(String nombreApellido, String email, String password, String password2)
+    {
+        if (nombreApellido.equals(null)||nombreApellido.trim().length()==0)
+            return "El nombre ingresado no es valido";
+        if(email.equals(null)||email.trim().length()==0||!validarEmail(email))
+            return "El email ingresado no es valido";
+        if (password.equals(null)||password.trim().length()==0 || password.length()<8 ||
+                password2.equals(null)||password2.trim().length()==0 || password2.length()<8)
+            return "La contraseña ingresada no es valida";
+        if (!password.equals(password2))
+            return "Las contraseñas no coinciden";
+
+        return null;
+    }
+
+
 }
