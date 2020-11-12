@@ -4,21 +4,17 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.iua.jessicalopez.ConexionSQLiteHelper;
+import com.iua.jessicalopez.Conexiones.ConexionSQLiteHelper;
 import com.iua.jessicalopez.Constantes.Constantes;
 import com.iua.jessicalopez.Modelo.User;
 import com.iua.jessicalopez.R;
-
-import java.sql.SQLOutput;
 
 public class CreateAccountActivity extends AppCompatActivity {
     EditText editName, editEmail, editPassword, editPassword2;

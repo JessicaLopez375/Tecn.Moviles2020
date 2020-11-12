@@ -5,32 +5,17 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.iua.jessicalopez.ClassConnection;
-import com.iua.jessicalopez.ConexionSQLiteHelper;
+import com.iua.jessicalopez.Conexiones.ConexionSQLiteHelper;
 import com.iua.jessicalopez.Constantes.Constantes;
-import com.iua.jessicalopez.Fragments.FragmentMovies;
 import com.iua.jessicalopez.Modelo.User;
 import com.iua.jessicalopez.R;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.Iterator;
-import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
 

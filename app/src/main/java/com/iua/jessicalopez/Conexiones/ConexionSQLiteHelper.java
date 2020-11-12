@@ -1,4 +1,4 @@
-package com.iua.jessicalopez;
+package com.iua.jessicalopez.Conexiones;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

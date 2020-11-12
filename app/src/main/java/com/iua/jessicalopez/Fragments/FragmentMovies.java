@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import com.iua.jessicalopez.Adapters.AdapterAdvance;
 import com.iua.jessicalopez.Adapters.AdapterMovie;
-import com.iua.jessicalopez.ClassConnection;
+import com.iua.jessicalopez.Conexiones.ClassConnection;
 import com.iua.jessicalopez.Modelo.MovieVo;
 import com.iua.jessicalopez.R;
 
@@ -21,7 +21,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
