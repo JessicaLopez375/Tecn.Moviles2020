@@ -1,6 +1,8 @@
 package com.iua.jessicalopez.Fragments;
 
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,62 +16,43 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.iua.jessicalopez.Conexiones.ConexionSQLiteHelper;
+import com.iua.jessicalopez.Constantes.Constantes;
+import com.iua.jessicalopez.Modelo.User;
 import com.iua.jessicalopez.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentProfile#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentProfile extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
 
     View vista;
     TextView cancel;
     TextView listo;
     EditText name;
-    EditText perfil;
+    EditText email;
+    EditText password;
+    User user = new User();
+    ConexionSQLiteHelper conn;
+
     Spinner spinner;
 
     public FragmentProfile() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentProfile.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentProfile newInstance(String param1, String param2) {
-        FragmentProfile fragment = new FragmentProfile();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
+        conn = new ConexionSQLiteHelper(getContext(), "bd users", null, 1);
+        if(getArguments() != null){
+            user = (User) getArguments().getSerializable("usuario");
+            Toast.makeText(getContext(), "el usuario" + user.getEmail(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -81,12 +64,14 @@ public class FragmentProfile extends Fragment {
         cancel = vista.findViewById(R.id.cancel);
         spinner = vista.findViewById(R.id.spinner);
         name = vista.findViewById(R.id.editTextName);
-        perfil = vista.findViewById(R.id.editTextPerfil);
+        email = vista.findViewById(R.id.editTextEmail);
+        password = vista.findViewById(R.id.editPasswordPerfil);
         listo = vista.findViewById(R.id.listo);
+        consultar();
 
         ArrayAdapter adapter = ArrayAdapter.createFromResource(getContext(), R.array.preferencias, R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        cargarPreferencias();
+
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,13 +81,13 @@ public class FragmentProfile extends Fragment {
             }
         });
 
-        listo.setOnClickListener(new View.OnClickListener() {
+        /*listo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPreferences preferencias = getContext().getSharedPreferences("Preferencias", getContext().MODE_PRIVATE);
 
                 String nombre = name.getText().toString();
-                String perf = perfil.getText().toString();
+                String perf = email.getText().toString();
                 int posicion_pref = spinner.getSelectedItemPosition();
                 String pref = spinner.getSelectedItem().toString();
 
@@ -118,13 +103,13 @@ public class FragmentProfile extends Fragment {
 
 
             }
-        });
+        });*/
 
 
         return vista;
     }
 
-
+        /*
     public void cargarPreferencias() {
         SharedPreferences preferencias = getContext().getSharedPreferences("Preferencias", getContext().MODE_PRIVATE);
 
@@ -133,10 +118,10 @@ public class FragmentProfile extends Fragment {
         int posicion = preferencias.getInt("Posicion preferencia",0);
 
         name.setText(nombre);
-        perfil.setText(perf);
+        email.setText(perf);
         spinner.setSelection(posicion);
 
-    }
+    }*/
 
     public void atras(){
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -144,5 +129,27 @@ public class FragmentProfile extends Fragment {
         fragmentTransaction.replace(R.id.containerFragments, new FragmentSetting());
         fragmentTransaction.commit();
     }
+
+    private void consultar() {
+        SQLiteDatabase db = conn.getReadableDatabase();
+        String[] emailparam = {user.getEmail()};
+        String[] campos = {Constantes.CAMPO_NOMBREAPELLIDO, Constantes.CAMPO_PASSWORD };
+        try {
+            Cursor cursor = db.query(Constantes.TABLA_USER, campos, Constantes.CAMPO_EMAIL +"=?",emailparam,null, null, null);
+            cursor.moveToFirst();
+            name.setText(cursor.getString(0));
+            password.setText(cursor.getString(1));
+            email.setText(user.getEmail());
+            cursor.close();
+
+        }catch (Exception e){
+            Toast.makeText(getContext(),"Error", Toast.LENGTH_SHORT).show();
+
+
+        }
+
+
+    }
+
 
 }

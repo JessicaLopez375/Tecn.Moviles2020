@@ -2,6 +2,7 @@ package com.iua.jessicalopez.Activitys;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -9,7 +10,9 @@ import androidx.fragment.app.FragmentTransaction;
 import com.iua.jessicalopez.Fragments.FragmentFav;
 import com.iua.jessicalopez.Fragments.FragmentMovies;
 import com.iua.jessicalopez.Fragments.FragmentSetting;
+import com.iua.jessicalopez.Modelo.User;
 import com.iua.jessicalopez.R;
+
 
 import java.util.concurrent.ExecutionException;
 
@@ -26,6 +29,8 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
+        Bundle usuarioEnviado = getIntent().getExtras();
+
 
         try {
             fragmentMovies = new FragmentMovies();
@@ -34,7 +39,9 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         fragmentSetting = new FragmentSetting();
+        fragmentSetting.setArguments(usuarioEnviado);
         fragmentFav = new FragmentFav();
         //Por defecto el primer fragment es el movie
         getSupportFragmentManager().beginTransaction().add(R.id.containerFragments, fragmentMovies).commit();

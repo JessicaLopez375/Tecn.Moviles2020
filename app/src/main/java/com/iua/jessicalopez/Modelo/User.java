@@ -2,10 +2,11 @@ package com.iua.jessicalopez.Modelo;
 
 import android.util.Patterns;
 
+import java.io.Serializable;
 import java.sql.SQLOutput;
 import java.util.regex.Pattern;
 
-public class User {
+public class User implements Serializable {
 
     private Integer id;
     private String nombreApellido;

@@ -44,7 +44,9 @@ public class FragmentMovies extends Fragment {
     String uriCompleta;
 
     ClassConnection connection = new ClassConnection();
-    String response = connection.execute("https://api.themoviedb.org/3/discover/movie?api_key=4e288b8538f5ea2c0a791cc57625bcad").get();
+
+    String response = connection.execute("https://api.themoviedb.org/3/discover/movie?api_key=4e288b8538f5ea2c0a791cc57625bcad&page=1").get();
+
 
 
     public FragmentMovies() throws ExecutionException, InterruptedException {
@@ -73,6 +75,7 @@ public class FragmentMovies extends Fragment {
 
             JSONObject jsonObject = new JSONObject(response);
             jsonArray = jsonObject.getJSONArray("results");
+
 
 
 
@@ -115,8 +118,7 @@ public class FragmentMovies extends Fragment {
     }
 
     private void llenarlista() throws JSONException {
-
-        for (int i=0;i<=15;i++)
+        for (int i=0;i<=19;i++)
         {
             titulo = jsonArray.getJSONObject(i).getString("title");
             descripcion = jsonArray.getJSONObject(i).getString("overview");
@@ -125,7 +127,7 @@ public class FragmentMovies extends Fragment {
             movies.add(new MovieVo(titulo,uriCompleta,descripcion));
         }
 
-        for (int y=16;y<=20;y++)
+        for (int y=15;y<=19;y++)
         {
                 titulo = jsonArray.getJSONObject(y).getString("title");
                 path = jsonArray.getJSONObject(y).getString("poster_path");

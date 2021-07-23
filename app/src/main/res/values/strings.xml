@@ -42,9 +42,8 @@
     <string name="editarPerfil">Editar Perfil</string>
     <string name="cancelar">Cancelar</string>
     <string name="listo">Listo</string>
-    <string name="nombre">Nombre</string>
+    <string name="nombreApellido">Nombre y Apellido</string>
     <string name="preferencia">Preferencias</string>
-
     <string-array name="preferencias">
         <item>Peliculas</item>
         <item>Series</item>

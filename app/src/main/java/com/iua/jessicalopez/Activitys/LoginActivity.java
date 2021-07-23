@@ -65,7 +65,13 @@ public class LoginActivity extends AppCompatActivity {
                         Cursor cursor = db.query(Constantes.TABLA_USER, campos, Constantes.CAMPO_EMAIL + "=?", parametros, null, null, null);
                         cursor.moveToFirst();
                         if ((cursor.getString(0).equals(editEmail.getText().toString())) && (cursor.getString(1).equals(editPass.getText().toString()))) {
-                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            Intent intent =  new Intent(LoginActivity.this, HomeActivity.class);
+                            Bundle bundle = new Bundle();
+                            user.setEmail(editEmail.getText().toString());
+                            bundle.putSerializable("usuario", user);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+
                         } else {
                             AlertDialog.Builder alertLoginIncorrecto = new AlertDialog.Builder(LoginActivity.this);
                             alertLoginIncorrecto.setTitle("Error");
