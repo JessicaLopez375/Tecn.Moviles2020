@@ -1,5 +1,6 @@
 package com.iua.jessicalopez.Activitys;
 
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -36,7 +37,16 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
         Bundle usuarioEnviado = getIntent().getExtras();
 
         try {
+            Bundle flag = new Bundle();
             fragmentMovies = new FragmentMovies();
+                if(!isConnected()){
+                    Toast.makeText(this, "SIN INTERNET", Toast.LENGTH_SHORT).show();
+                    flag.putInt("conectividad",0);
+                }else {
+                    Toast.makeText(this, "con INTERNET", Toast.LENGTH_SHORT).show();
+                    flag.putInt("conectividad",1);
+                }
+            fragmentMovies.setArguments(flag);
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -49,6 +59,12 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
         fragmentProfile.setArguments(usuarioEnviado);
         //Por defecto el primer fragment es el movie
         getSupportFragmentManager().beginTransaction().add(R.id.containerFragments, fragmentMovies).commit();
+
+        if(!isConnected()){
+            Toast.makeText(this, "SIN INTERNET", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "con INTERNET", Toast.LENGTH_SHORT).show();
+        }
 
 
     }
@@ -84,6 +100,12 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
         } else {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
+    }
+
+    public boolean isConnected(){
+        ConnectivityManager connectivityManager = (ConnectivityManager)getApplication().getSystemService(this.CONNECTIVITY_SERVICE);
+        return connectivityManager.getActiveNetworkInfo()!=null && connectivityManager.getActiveNetworkInfo().isConnectedOrConnecting();
+
     }
 
 
