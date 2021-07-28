@@ -48,6 +48,8 @@
         <item>Peliculas</item>
         <item>Series</item>
     </string-array>
+    <string name="tema">Aspecto oscuro</string>
+    <string name="cuenta">Cuenta</string>
 
 
 </resources>

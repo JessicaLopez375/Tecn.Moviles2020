@@ -71,6 +71,19 @@
                 android:onClick="onClick"/>
 
             <Button
+                android:id="@+id/cuenta_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_movie"
+                android:background="@drawable/button_no_border"
+                android:text="@string/cuenta"
+                android:drawableTop="@drawable/ic_user"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text"
+                android:typeface="normal"
+                android:onClick="onClick"/>
+
+            <Button
                 android:id="@+id/fav_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

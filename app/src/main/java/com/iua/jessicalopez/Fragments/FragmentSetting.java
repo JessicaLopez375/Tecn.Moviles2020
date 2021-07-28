@@ -1,31 +1,67 @@
 package com.iua.jessicalopez.Fragments;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.preference.MultiSelectListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
+import androidx.preference.SwitchPreference;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.iua.jessicalopez.Activitys.HomeActivity;
+import com.iua.jessicalopez.Activitys.MainActivity;
 import com.iua.jessicalopez.Conexiones.ConexionSQLiteHelper;
-import com.iua.jessicalopez.Constantes.Constantes;
 import com.iua.jessicalopez.Modelo.User;
 import com.iua.jessicalopez.R;
 
-
-public class FragmentSetting extends Fragment {
-
+import java.util.Objects;
 
 
+public class FragmentSetting extends PreferenceFragmentCompat {
+    public FragmentSetting() {
+
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        setPreferencesFromResource(R.xml.preferencias, rootKey);
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /*public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        conn = new ConexionSQLiteHelper(getContext(), "bd movieNigth", null, 1);
+
+        if (getArguments() != null) {
+            user = (User) getArguments().getSerializable("usuario");
+        } else {
+
+        }
+
+
+    }
+
+
+*/
+
+    /*
     FragmentProfile fragmentProfile = new FragmentProfile();
     Button buttonProfile;
     View vista;
@@ -40,11 +76,15 @@ public class FragmentSetting extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        conn = new ConexionSQLiteHelper(getContext(), "bd users", null, 1);
+        conn = new ConexionSQLiteHelper(getContext(), "bd movieNigth", null, 1);
 
         if(getArguments() != null){
             user = (User) getArguments().getSerializable("usuario");
             fragmentProfile.setArguments(getArguments());
+            Toast.makeText(getContext(), "usuario encontrado", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getContext(), "usuario encontrado", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -55,14 +95,17 @@ public class FragmentSetting extends Fragment {
        vista = inflater.inflate(R.layout.fragment_setting, container, false);
        buttonProfile = vista.findViewById(R.id.my_profile);
        name = vista.findViewById(R.id.nameSetting);
-       consultar();
+       User aux = user.findUserByEmail(user.getEmail(), conn);
+       name.setText(aux.getNombreApellido());
 
        buttonProfile.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-               FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-               fragmentTransaction.replace(R.id.contenedorSetting, fragmentProfile);
+               Toast.makeText(getContext(), "el usuario es"+user.getEmail(), Toast.LENGTH_SHORT).show();
+               //FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+               FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+               //FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+               fragmentTransaction.replace(R.id.containerFragments, fragmentProfile);
                fragmentTransaction.commit();
 
            }
@@ -71,24 +114,6 @@ public class FragmentSetting extends Fragment {
         return vista;
     }
 
-    private void consultar() {
-        SQLiteDatabase db = conn.getReadableDatabase();
-        String[] email = {user.getEmail()};
-        String[] campos = {Constantes.CAMPO_NOMBREAPELLIDO, Constantes.CAMPO_PASSWORD };
-        try {
-            Cursor cursor = db.query(Constantes.TABLA_USER, campos, Constantes.CAMPO_EMAIL +"=?",email,null, null, null);
-            cursor.moveToFirst();
-            name.setText(cursor.getString(0));
-            cursor.close();
-
-        }catch (Exception e){
-
-
-        }
-
-
-    }
-
     public interface SettingFragmentListener {
-    }
+    }*/
 }

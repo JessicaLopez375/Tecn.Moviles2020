@@ -4,195 +4,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/colorPrimary"
     tools:context=".Fragments.FragmentProfile">
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
     <RelativeLayout
-        android:id="@+id/relative1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearL1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/titulo"
-            android:layout_marginTop="@dimen/marginprofile"
-            android:clickable="true"
-            android:text="@string/cancelar"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/editarPerfil"
+            android:id="@+id/textNombreApellidoUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/marginprofile"
-            android:text="@string/editarPerfil"
+            android:layout_marginTop="@dimen/margin"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="@dimen/text"
+            android:textSize="@dimen/bienvenida"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/listo"
-            android:layout_width="wrap_content"
+            android:id="@+id/emailUser"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="@dimen/margin"
-            android:layout_marginTop="@dimen/marginprofile"
-            android:layout_marginEnd="@dimen/titulo"
-            android:clickable="true"
-            android:text="@string/listo"
+            android:layout_marginBottom="@dimen/margin"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="@dimen/text"
+            android:textSize="@dimen/subtituloProfile"
             android:textStyle="bold" />
 
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/linearL1"
+        android:orientation="vertical"
+        tools:layout_below="@id/linearL1">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/listo"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginprofile"
-                android:src="@drawable/imagenperfil" />
+                android:layout_weight="1"
+                android:text="Cambiar contraseña"
+                android:textSize="@dimen/text"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/magin_titulo"/>
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/buttonCambiarContrasenia"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginRight="@dimen/magin_titulo"
+                android:drawableRight="@drawable/ic_next"
+                android:background="@color/colorPrimary" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textName"
-                    android:layout_width="@dimen/margin_campos"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/magin_titulo"
-                    android:layout_marginTop="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
-                    android:text="@string/nombreApellido"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text"
-                    android:textStyle="bold"
-                    tools:layout_marginBottom="@dimen/margin" />
-
-                <EditText
-                    android:id="@+id/editTextName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin"
-                    android:focusable="true"
-                    android:inputType="textPersonName"
-                    android:nextFocusDown="@+id/editTextEmail"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:focusable="auto"
-                    android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textPassword"
-                    android:layout_width="@dimen/margin_campos"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/magin_titulo"
-                    android:layout_marginTop="@dimen/margin"
-                    android:layout_marginRight="@dimen/margin"
-                    android:layout_marginBottom="@dimen/margin"
-                    android:text="@string/email"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/editTextEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text"
-                    android:textStyle="bold" />
-                </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textPasswordPerfil"
-                    android:layout_width="222dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/magin_titulo"
-                    android:layout_marginTop="@dimen/margin"
-                    android:layout_marginBottom="@dimen/margin"
-                    android:layout_weight="1"
-                    android:text="@string/password"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/editPasswordPerfil"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin"
-                    android:layout_weight="1"
-                    android:inputType="textPassword"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textPreferencias"
-                        android:layout_width="@dimen/margin_campos"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/magin_titulo"
-                        android:layout_marginTop="@dimen/margin"
-                        android:layout_marginRight="@dimen/margin"
-                        android:text="@string/preferencia"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text"
-                        android:textStyle="bold" />
-
-                    <Spinner
-                        android:id="@+id/spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin"
-                        android:textColor="@color/white"
-                        android:textSize="10sp" />
-
-
-                </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white">
 
         </LinearLayout>
 
-    </RelativeLayout></ScrollView>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/text"
+            android:text="Cambiar email"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/magin_titulo"/>
+
+        <Button
+            android:id="@+id/buttonCambiarEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/magin_titulo"
+            android:drawableRight="@drawable/ic_next"
+            android:background="@color/colorPrimary" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white">
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </RelativeLayout>
 
 </FrameLayout>

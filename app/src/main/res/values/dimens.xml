@@ -17,6 +17,9 @@
     <dimen name="margintop_profile">50dp</dimen>
     <dimen name="marginprofile">10dp</dimen>
     <dimen name="margin_campos">75dp</dimen>
+    <dimen name="bienvenida">30dp</dimen>
+    <dimen name="subtituloProfile">20dp</dimen>
+    <dimen name="datosProfile">16dp</dimen>
 
 
     <dimen name="title_detail">25dp</dimen>

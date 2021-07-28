@@ -12,6 +12,6 @@ public class Constantes {
    public static final String CREAR_TABLA_USER = "CREATE TABLE" + TABLA_USER+" " +
            "("+CAMPO_ID+" INTEGER, " +
            ""+CAMPO_NOMBREAPELLIDO+" TEXT, " +
-           ""+CAMPO_EMAIL+" TEXT, " +
+           ""+CAMPO_EMAIL+" TEXT unique " +
            ""+CAMPO_PASSWORD+" TEXT)";
 }

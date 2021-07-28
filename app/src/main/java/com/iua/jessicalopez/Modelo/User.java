@@ -1,6 +1,13 @@
 package com.iua.jessicalopez.Modelo;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Patterns;
+import android.widget.Toast;
+
+import com.iua.jessicalopez.Conexiones.ConexionSQLiteHelper;
+import com.iua.jessicalopez.Constantes.Constantes;
 
 import java.io.Serializable;
 import java.sql.SQLOutput;
@@ -13,9 +20,15 @@ public class User implements Serializable {
     private String email;
     private String password;
 
+
     public User(){}
     public User(Integer id, String nombreApellido, String email, String password) {
         this.id = id;
+        this.nombreApellido = nombreApellido;
+        this.email = email;
+        this.password = password;
+    }
+    public User( String nombreApellido, String email, String password) {
         this.nombreApellido = nombreApellido;
         this.email = email;
         this.password = password;
@@ -80,5 +93,52 @@ public class User implements Serializable {
         return null;
     }
 
+    public User findUserByEmail(String email, ConexionSQLiteHelper con){
+
+        SQLiteDatabase db = con.getReadableDatabase();
+        String[] param = {email};
+        String[] campos = {Constantes.CAMPO_NOMBREAPELLIDO, Constantes.CAMPO_PASSWORD };
+        User u = new User();
+        try {
+            Cursor cursor = db.query(Constantes.TABLA_USER, campos, Constantes.CAMPO_EMAIL +"=?",
+                    param,null, null, null);
+            cursor.moveToFirst();
+            u.setNombreApellido(cursor.getString(0));
+            u.setPassword(cursor.getString(1));
+            u.setEmail(email);
+            cursor.close();
+
+        }catch (Exception e){
+
+
+
+        }
+        return u;
+    }
+
+    public void actualizarPassword(String email, String password,ConexionSQLiteHelper con){
+        SQLiteDatabase db = con.getWritableDatabase();
+        String[] param = {email};
+        ContentValues values = new ContentValues();
+        values.put(Constantes.CAMPO_PASSWORD, password);
+        db.update(Constantes.TABLA_USER, values, Constantes.CAMPO_EMAIL +"=?",param);
+        db.close();
+
+    }
+
+    public void actualizarEmail(String emailViejo, String emailNuevo,ConexionSQLiteHelper con){
+        SQLiteDatabase db = con.getWritableDatabase();
+        String[] param = {emailViejo};
+        ContentValues values = new ContentValues();
+        values.put(Constantes.CAMPO_EMAIL, emailNuevo);
+        db.update(Constantes.TABLA_USER, values, Constantes.CAMPO_EMAIL +"=?",param);
+        db.close();
+
+    }
 
 }
+
+
+
+
+

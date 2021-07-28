@@ -73,7 +73,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     private void registrarUsuarios() {
 
-        ConexionSQLiteHelper conexionSQLiteHelper = new ConexionSQLiteHelper(this,"bd users", null,1);
+        ConexionSQLiteHelper conexionSQLiteHelper = new ConexionSQLiteHelper(this,"bd movieNigth", null,1);
 
         //Abro la base de datos para poder editarlo
         SQLiteDatabase db = conexionSQLiteHelper.getWritableDatabase();

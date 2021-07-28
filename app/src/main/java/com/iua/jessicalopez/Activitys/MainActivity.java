@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.iua.jessicalopez.Conexiones.ConexionSQLiteHelper;
 import com.iua.jessicalopez.R;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        ConexionSQLiteHelper conexionSQLiteHelper = new ConexionSQLiteHelper(this,"bd users", null,1);
+        ConexionSQLiteHelper conexionSQLiteHelper = new ConexionSQLiteHelper(this,"bd movieNigth", null,1);
 
         initButton = findViewById(R.id.init_button);
         createAccount = findViewById(R.id.create_button);
@@ -43,5 +44,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 }

@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,19 +26,18 @@ import com.iua.jessicalopez.R;
 
 public class FragmentProfile extends Fragment {
 
-
-
-
     View vista;
-    TextView cancel;
-    TextView listo;
-    EditText name;
-    EditText email;
-    EditText password;
+    TextView textNombreApellidoUser;
+    TextView emailUser;
+    Button cambiarContrasenia;
+    Button cambiarEmail;
     User user = new User();
     ConexionSQLiteHelper conn;
+    FragmentCambiarPassword fragmentCambiarPassword;
+    FragmentCambiarEmail fragmentCambiarEmail;
 
-    Spinner spinner;
+
+
 
     public FragmentProfile() {
         // Required empty public constructor
@@ -49,10 +49,10 @@ public class FragmentProfile extends Fragment {
 
         super.onCreate(savedInstanceState);
 
-        conn = new ConexionSQLiteHelper(getContext(), "bd users", null, 1);
+        conn = new ConexionSQLiteHelper(getContext(), "bd movieNigth", null, 1);
+
         if(getArguments() != null){
             user = (User) getArguments().getSerializable("usuario");
-            Toast.makeText(getContext(), "el usuario" + user.getEmail(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -60,26 +60,47 @@ public class FragmentProfile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         vista = inflater.inflate(R.layout.fragment_profile, container, false);
-
-        cancel = vista.findViewById(R.id.cancel);
-        spinner = vista.findViewById(R.id.spinner);
-        name = vista.findViewById(R.id.editTextName);
-        email = vista.findViewById(R.id.editTextEmail);
-        password = vista.findViewById(R.id.editPasswordPerfil);
-        listo = vista.findViewById(R.id.listo);
-        consultar();
-
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(getContext(), R.array.preferencias, R.layout.support_simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        textNombreApellidoUser = vista.findViewById(R.id.textNombreApellidoUser);
+        cambiarContrasenia = vista.findViewById(R.id.buttonCambiarContrasenia);
+        cambiarEmail = vista.findViewById(R.id.buttonCambiarEmail);
+        emailUser = vista.findViewById(R.id.emailUser);
+        fragmentCambiarPassword = new FragmentCambiarPassword();
+        fragmentCambiarEmail = new FragmentCambiarEmail();
+        final FragmentTransaction transaction= getFragmentManager().beginTransaction();
 
 
-        cancel.setOnClickListener(new View.OnClickListener() {
+        cambiarContrasenia.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                fragmentCambiarPassword.setArguments(getArguments());
+                transaction.replace(R.id.containerFragments,fragmentCambiarPassword );
+                transaction.commit();
 
-                atras();
             }
         });
+
+        cambiarEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragmentCambiarEmail.setArguments(getArguments());
+                transaction.replace(R.id.containerFragments, fragmentCambiarEmail);
+                transaction.commit();
+
+            }
+        });
+
+
+        //Se consulta a la BD el usuario
+        User aux = user.findUserByEmail(user.getEmail(),conn);
+
+        //Se setean los campos de la vista
+        textNombreApellidoUser.setText(aux.getNombreApellido().toUpperCase());
+        emailUser.setText(aux.getEmail());
+
+
+
+
+
 
         /*listo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,30 +147,16 @@ public class FragmentProfile extends Fragment {
     public void atras(){
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.containerFragments, new FragmentSetting());
+        FragmentSetting fs = new FragmentSetting();
+        fs.setArguments(getArguments());
+        fragmentTransaction.replace(R.id.containerFragments, fs);
+
         fragmentTransaction.commit();
     }
 
-    private void consultar() {
-        SQLiteDatabase db = conn.getReadableDatabase();
-        String[] emailparam = {user.getEmail()};
-        String[] campos = {Constantes.CAMPO_NOMBREAPELLIDO, Constantes.CAMPO_PASSWORD };
-        try {
-            Cursor cursor = db.query(Constantes.TABLA_USER, campos, Constantes.CAMPO_EMAIL +"=?",emailparam,null, null, null);
-            cursor.moveToFirst();
-            name.setText(cursor.getString(0));
-            password.setText(cursor.getString(1));
-            email.setText(user.getEmail());
-            cursor.close();
 
-        }catch (Exception e){
-            Toast.makeText(getContext(),"Error", Toast.LENGTH_SHORT).show();
-
-
-        }
 
 
     }
 
 
-}

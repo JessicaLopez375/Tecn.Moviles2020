@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        conexionSQLiteHelper = new ConexionSQLiteHelper(getApplicationContext(), "bd users", null, 1);
+        conexionSQLiteHelper = new ConexionSQLiteHelper(getApplicationContext(), "bd movieNigth", null, 1);
 
         editEmail = findViewById(R.id.editEmail);
         editPass = findViewById(R.id.editPassword);

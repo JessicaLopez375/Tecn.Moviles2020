@@ -5,10 +5,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.preference.PreferenceManager;
 
 import com.iua.jessicalopez.Fragments.FragmentFav;
 import com.iua.jessicalopez.Fragments.FragmentMovies;
+import com.iua.jessicalopez.Fragments.FragmentProfile;
 import com.iua.jessicalopez.Fragments.FragmentSetting;
 import com.iua.jessicalopez.Modelo.User;
 import com.iua.jessicalopez.R;
@@ -16,12 +19,12 @@ import com.iua.jessicalopez.R;
 
 import java.util.concurrent.ExecutionException;
 
-public class HomeActivity extends AppCompatActivity implements FragmentMovies.MoviesFragmentListener,
-        FragmentSetting.SettingFragmentListener {
+public class HomeActivity extends AppCompatActivity implements FragmentMovies.MoviesFragmentListener {
 
     FragmentMovies fragmentMovies;
     FragmentSetting fragmentSetting;
     FragmentFav fragmentFav;
+    FragmentProfile fragmentProfile;
 
 
     @Override
@@ -29,8 +32,8 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
+        //Recibimos el usuario logueado (email)
         Bundle usuarioEnviado = getIntent().getExtras();
-
 
         try {
             fragmentMovies = new FragmentMovies();
@@ -41,8 +44,9 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
         }
 
         fragmentSetting = new FragmentSetting();
-        fragmentSetting.setArguments(usuarioEnviado);
         fragmentFav = new FragmentFav();
+        fragmentProfile = new FragmentProfile();
+        fragmentProfile.setArguments(usuarioEnviado);
         //Por defecto el primer fragment es el movie
         getSupportFragmentManager().beginTransaction().add(R.id.containerFragments, fragmentMovies).commit();
 
@@ -63,6 +67,9 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
             case (R.id.fav_button):
                 transaction.replace(R.id.containerFragments, fragmentFav);
                 break;
+            case (R.id.cuenta_button):
+                transaction.replace(R.id.containerFragments, fragmentProfile);
+                break;
         }
 
         transaction.commit();
@@ -70,6 +77,14 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
 
     }
 
+    public void setDayNigth(int mode) {
+        if (mode == 0) {
+            Toast.makeText(this, "ESTOY EN 0", Toast.LENGTH_SHORT).show();
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        } else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+    }
 
 
 }
