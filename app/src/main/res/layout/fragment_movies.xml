@@ -7,6 +7,11 @@
     android:id="@+id/frameMovies"
     tools:context=".Fragments.FragmentMovies">
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/swipe">
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/line1"
         android:layout_width="match_parent"
@@ -18,7 +23,7 @@
             android:id="@+id/textViewAdvances"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/advances"
+            android:text="MAS POPULARES"
             android:textColor="@color/white"
             android:textSize="@dimen/titulo"
             android:typeface="normal"
@@ -45,5 +50,5 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </FrameLayout>

@@ -1,19 +1,28 @@
 package com.iua.jessicalopez.Activitys;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.iua.jessicalopez.Fragments.FragmentFav;
 import com.iua.jessicalopez.Fragments.FragmentMovies;
 import com.iua.jessicalopez.Fragments.FragmentProfile;
 import com.iua.jessicalopez.Fragments.FragmentSetting;
+import com.iua.jessicalopez.Modelo.Preferencias;
 import com.iua.jessicalopez.Modelo.User;
 import com.iua.jessicalopez.R;
 
@@ -40,10 +49,8 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
             Bundle flag = new Bundle();
             fragmentMovies = new FragmentMovies();
                 if(!isConnected()){
-                    Toast.makeText(this, "SIN INTERNET", Toast.LENGTH_SHORT).show();
                     flag.putInt("conectividad",0);
                 }else {
-                    Toast.makeText(this, "con INTERNET", Toast.LENGTH_SHORT).show();
                     flag.putInt("conectividad",1);
                 }
             fragmentMovies.setArguments(flag);
@@ -60,15 +67,7 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
         //Por defecto el primer fragment es el movie
         getSupportFragmentManager().beginTransaction().add(R.id.containerFragments, fragmentMovies).commit();
 
-        if(!isConnected()){
-            Toast.makeText(this, "SIN INTERNET", Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(this, "con INTERNET", Toast.LENGTH_SHORT).show();
-        }
-
-
     }
-
 
     public void onClick(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -92,21 +91,37 @@ public class HomeActivity extends AppCompatActivity implements FragmentMovies.Mo
 
 
     }
-
-    public void setDayNigth(int mode) {
-        if (mode == 0) {
-            Toast.makeText(this, "ESTOY EN 0", Toast.LENGTH_SHORT).show();
-            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        } else {
-            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }
-    }
-
+    
     public boolean isConnected(){
         ConnectivityManager connectivityManager = (ConnectivityManager)getApplication().getSystemService(this.CONNECTIVITY_SERVICE);
         return connectivityManager.getActiveNetworkInfo()!=null && connectivityManager.getActiveNetworkInfo().isConnectedOrConnecting();
 
     }
 
+    /*
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == event.KEYCODE_BACK){
+            final AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+            alerta.setMessage("¿Desea salir?");
+            alerta.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_HOME);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
 
+                }
+            });
+            alerta.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            alerta.create().show();
+        }
+        return super.onKeyDown(keyCode, event);
+    }*/
 }

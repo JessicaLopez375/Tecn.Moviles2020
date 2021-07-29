@@ -57,7 +57,33 @@
                 android:typeface="normal"
                 android:onClick="onClick"/>
 
-            <Button
+        <Button
+            android:id="@+id/fav_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_movie"
+            android:background="@drawable/button_no_border"
+            android:drawableTop="@drawable/ic_fav"
+            android:onClick="onClick"
+            android:text="@string/fav"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text"
+            android:typeface="normal" />
+
+        <Button
+            android:id="@+id/cuenta_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_movie"
+            android:background="@drawable/button_no_border"
+            android:drawableTop="@drawable/ic_user"
+            android:onClick="onClick"
+            android:text="@string/cuenta"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text"
+            android:typeface="normal" />
+
+        <Button
                 android:id="@+id/setting_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -70,42 +96,23 @@
                 android:typeface="normal"
                 android:onClick="onClick"/>
 
-            <Button
-                android:id="@+id/cuenta_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_movie"
-                android:background="@drawable/button_no_border"
-                android:text="@string/cuenta"
-                android:drawableTop="@drawable/ic_user"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text"
-                android:typeface="normal"
-                android:onClick="onClick"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line0"
+            android:layout_above="@id/line1"
 
-            <Button
-                android:id="@+id/fav_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_movie"
-                android:background="@drawable/button_no_border"
-                android:text="@string/fav"
-                android:drawableTop="@drawable/ic_fav"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text"
-                android:typeface="normal"
-                android:onClick="onClick"/>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
+            android:id="@+id/swipeHome">
             <FrameLayout
                 android:id="@+id/containerFragments"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/line0"
-                android:layout_above="@id/line1">
+                android:layout_above="@id/line1"
+                >
 
             </FrameLayout>
+
 
 
 </RelativeLayout>

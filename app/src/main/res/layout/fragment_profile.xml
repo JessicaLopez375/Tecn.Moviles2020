@@ -10,34 +10,35 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/linearL1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/red"
-        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textNombreApellidoUser"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearL1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/bienvenida"
-            android:textStyle="bold" />
+            android:background="@color/red"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/emailUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/subtituloProfile"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textNombreApellidoUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/bienvenida"
+                android:textStyle="bold" />
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            <TextView
+                android:id="@+id/emailUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/subtituloProfile"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"

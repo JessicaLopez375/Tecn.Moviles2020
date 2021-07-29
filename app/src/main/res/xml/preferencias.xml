@@ -1,45 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:textColor="@color/white">
 
-    <PreferenceCategory android:title="Cuenta">
-        <EditTextPreference
-            android:title="Email"
-            android:key="userEmail"
-            android:summary="Actualice el email registrado en su cuenta"
-            android:dialogTitle="Introduzca su nuevo email"
-            android:icon="@drawable/ic_email">
-        </EditTextPreference>
-
-        <EditTextPreference
-            android:title="@string/password"
-            android:key="userPassword"
-            android:summary="Actualice su contraseña"
-            android:dialogTitle="Introduzca su nueva contraseña"
-            android:icon="@drawable/ic_password">
-
-        </EditTextPreference>
-
-
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="General">
-        <SwitchPreference
-            android:key="tema"
-            android:title="@string/tema"
-            android:summary="Active o desactive el modo claro"/>
-    </PreferenceCategory>
-
     <PreferenceCategory android:title="Preferencias">
-        <MultiSelectListPreference
+        <ListPreference
             android:key="generos"
             android:title="Géneros"
             android:icon="@drawable/ic_generos"
-            android:summary="Seleccione los géneros por los que desea filtrar"
+            android:summary="Seleccione el genero por el que desea filtrar"
             android:entries="@array/Generos"
-            android:entryValues="@array/Generos"/>
+            android:entryValues="@array/Generos">
+        </ListPreference>
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="Extras">
+        <PreferenceScreen
+           android:title="Reportar un problema"
+            android:summary="¿Algun problema o sugerencia? Comunicate con nosotros"
+            android:icon="@drawable/ic_problema">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetPackage="com.iua.jessicalopez"
+                android:targetClass="com.iua.jessicalopez.Activitys.EnviarEmailActivity">
+
+            </intent>
+
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+
 </PreferenceScreen>

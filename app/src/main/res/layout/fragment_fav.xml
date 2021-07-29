@@ -3,13 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/red"
+    android:background="@color/colorPrimary"
     tools:context=".Fragments.FragmentFav">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+    <TextView
+        android:id="@+id/textViewFavoritos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FAVORITOS"
+        android:layout_marginBottom="@dimen/titulo"
+        android:textColor="@color/white"
+        android:textSize="@dimen/titulo"
+        android:typeface="normal"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/magin_titulo"
+        android:layout_marginLeft="@dimen/magin_titulo"
+        android:paddingTop="@dimen/magin_titulo"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_MoviesFav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </FrameLayout>

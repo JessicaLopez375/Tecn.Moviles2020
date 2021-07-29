@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.FragmentEnviarEmail"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reportar un problema"
+            android:gravity="center"
+            android:textSize="@dimen/titulo"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_marginBottom="@dimen/margin"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/texto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¿Tienes algun problema?                                                                                         ¡Comunicate con nosotros!"
+            android:gravity="center"
+            android:textSize="@dimen/titulo"
+            android:layout_below="@id/titulo"
+            android:textColor="@color/white">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/mensaje"
+            android:layout_margin="@dimen/margin_advance"
+            android:layout_width="306dp"
+            android:layout_height="150dp"
+            android:textSize="@dimen/text"
+            android:textStyle="normal"
+            android:layout_below="@id/texto"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@color/white">
+
+        </EditText>
+
+        <Button
+            android:id="@+id/enviarEmailDesarrollador"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_rounded_play"
+            android:text="Enviar"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/mensaje">
+
+        </Button>
+    </RelativeLayout>
+
+</FrameLayout>

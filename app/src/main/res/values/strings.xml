@@ -10,10 +10,11 @@
     <string name="recover_password">Recuperar Contraseña</string>
     <string name="full_name"> Nombre y Apellido</string>
     <string name="movie">Películas</string>
-    <string name="setting">Configuración</string>
+    <string name="setting">Settings</string>
+    <string name="problema">Reportar problema</string>
     <string name="home">Inicio</string>
+    <string name="play">Reproducir</string>
     <string name="el_rey_leon">"El rey León"</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="movie_fuera_de_control">Fuera de control</string>
     <string name="advances">AVANCES</string>
     <string name="advance_1917">1917</string>
@@ -22,7 +23,7 @@
     <string name="Parque_Magico">Parque Mágico</string>
     <string name="locos_addams">Los locos Addams</string>
     <string name="title_activity_splash">Splash</string>
-    <string name="play">Reproducir</string>
+
     <string name="dos_por_el_dinero">Dos por el dinero</string>
     <string name="dracula">Dracula</string>
     <string name="rapido_furioso">Rápido y Furioso 8</string>

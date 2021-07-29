@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "156088260936",
+    "project_id": "tecnomoviles-444f9",
+    "storage_bucket": "tecnomoviles-444f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156088260936:android:fcc4321e6e26c8b28f3b7d",
+        "android_client_info": {
+          "package_name": "com.iua.jessicalopez"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156088260936-6beubu4r43o0pa04fc5bh2mnnn0o6098.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQjlEgy6YGC6spaHQdZTUz24tMYEMmv0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156088260936-6beubu4r43o0pa04fc5bh2mnnn0o6098.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
